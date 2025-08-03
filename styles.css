@@ -1,0 +1,262 @@
+/* --- 1. Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette */
+    --primary-color: #2E7D32; /* A deep, professional green */
+    --secondary-color: #4CAF50; /* A brighter green for accents */
+    --dark-color: #333333; /* For primary text */
+    --light-color: #f4f4f4; /* For light backgrounds */
+    --white-color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* --- 2. Layout --- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+/* --- 3. Typography --- */
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; text-align: center; margin-bottom: 40px; }
+p { margin-bottom: 1rem; }
+a { color: var(--primary-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul { list-style-position: inside; padding-left: 20px; }
+li { margin-bottom: 10px; }
+
+/* --- 4. Header & Navigation --- */
+header {
+    background-color: var(--white-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+header nav ul { list-style: none; padding: 0; }
+header nav ul li { display: inline; margin-left: 20px; }
+header nav a { font-weight: bold; }
+header nav a:hover { color: var(--secondary-color); text-decoration: none; }
+
+/* --- 5. Reusable Components (Buttons) --- */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+/* --- 6. Hero Section (with Slideshow) --- */
+.hero {
+    position: relative;
+    text-align: center;
+    color: var(--white-color);
+    padding: 120px 0;
+    overflow: hidden;
+}
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    animation: slideshow 15s infinite;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+.hero-content { position: relative; }
+.hero-content h1 {
+    color: var(--white-color);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.hero-content p {
+    color: var(--white-color);
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Slideshow Animation Keyframes --- */
+@keyframes slideshow {
+    0%   { background-image: url('uploads/WhatsApp\ Image\ 2025-08-02\ at\ 17.17.28_a3ce3130.jpg'); }
+    33%  { background-image: url('uploads/WhatsApp\ Image\ 2025-08-02\ at\ 16.23.26_ac2da0d9.jpg'); }
+    66%  { background-image: url('uploads/WhatsApp\ Image\ 2025-08-02\ at\ 16.23.26_8a74e18b.jpg'); }
+    100% { background-image: url('uploads/WhatsApp\ Image\ 2025-08-02\ at\ 16.23.25_17231d0f.jpg'); }
+}
+
+/* --- 7. Programming Languages Section --- */
+#languages ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+#languages li {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- 8. Education, Interests & Community Sections --- */
+#education article {
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+#education .button { margin-top: 20px; }
+
+#interests ul,
+#community ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+#interests li,
+#community li {
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+#interests li::before { content: '💡'; margin-right: 10px; font-size: 1.2rem; }
+#community li::before { content: '🤝'; margin-right: 10px; font-size: 1.2rem; }
+
+/* --- 9. Projects Section --- */
+#projects .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.project-card {
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.project-card:hover { transform: translateY(-5px); }
+.project-card h3 { margin-top: 0; margin-bottom: 10px; color: var(--primary-color); }
+.project-card p { color: var(--dark-color); }
+
+/* --- 10. Contact Form Section --- */
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+}
+#contact .button { width: 100%; font-size: 1.1rem; }
+
+/* --- 11. Footer --- */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+footer .container { padding: 0 20px; }
+
+/* --- 12. Responsive Design --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.75rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.1rem; }
+    header .container { flex-direction: column; gap: 15px; }
+    header nav ul li { margin: 0 10px; }
+}
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    header nav ul { text-align: center; }
+    header nav ul li { display: block; margin: 10px 0; }
+}
